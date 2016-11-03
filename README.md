@@ -1,7 +1,5 @@
 # CppStyleGuide
 
-[![Version](https://img.shields.io/badge/version-v1.0.1-green.svg)](https://github.com/illescasDaniel/CppStyleGuide/releases)
-
 * [Naming](#naming)
 * [Braces & Indentation](#braces--indentation)
 * [Best practices](#best-practices)
@@ -136,10 +134,10 @@ Try to avoid empty constructors, the uninitialized members has undefined values 
 ```c++
 class Human {
 	
+	string name;
 	uint8_t age;
 	uint8_t numberOfarms = 2;
 	bool isDisabled = false;
-	string name;
 	
 	Human(const uint8_t& age, const string& name) {
 		this->age = age;
