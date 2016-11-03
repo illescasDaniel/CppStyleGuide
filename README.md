@@ -1,5 +1,4 @@
 # CppStyleGuide
-C++ style guide (WIP)
 
 [![Version](https://img.shields.io/badge/version-v1.0.1-green.svg)](https://github.com/illescasDaniel/CppStyleGuide/releases)
 
