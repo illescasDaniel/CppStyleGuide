@@ -44,11 +44,11 @@ float moneyOnBank = 30.6;
 **Constants:**  
 
 - If it's a local or non global constant, use **lower camel case** syntax. 
-- If it's a global constant you might want to use the whole name in **upper case** and use underscores to separate words.   
+- If it's a global constant you might want to type the whole name in **upper case** and use underscores to separate words.   
 
 **Source Files:**
 
-Classes should be defined in one file or two separeted files, one for headers and the other for the methods.  
+Classes should be defined in one or two separated files, one for the headers and the other for the methods.  
 Another class can be implemented on the same file only if they are very related, like nested clases or similar.
 
 If the file contains a class named "Human" the source file should be "Human.h" for the headers and "Human.cpp" for the methods; or "Human.hpp" if you implement the entire class in one file.
