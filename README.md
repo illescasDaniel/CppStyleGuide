@@ -127,11 +127,10 @@ int anotherNumber;
 **Classes:**
 
 We could use two different styles:  
-a. Define the entire class in one file.  
-b. Define the headers of the class in one file and the implementation in other.
-
-a) 
-Use default member values when they're always initialized with the same value, unless the value is different depending on the constructor, then initialize those values inside each constructor.  
+* Define the entire class in one file.  
+* Define the headers of the class in one file and the implementation in other.
+ 
+Use default member values when they're always initialized with the same value, unless the value is different depending on the constructor, then initialize those values individually.  
 Try to avoid empty constructors, the uninitialized members has undefined values (use default member to avoid this, if you want).
 
 ```c++
@@ -139,8 +138,8 @@ class Human {
 	
 	uint8_t age;
 	uint8_t numberOfarms = 2;
-	string name;
 	bool isDisabled = false;
+	string name;
 	
 	Human(const uint8_t& age, const string& name) {
 		this->age = age;
@@ -181,29 +180,29 @@ Avoid old for loops when iterating through a range of elements:
 
 ```c++
 	
-	int numbers[] = {-1,2,3};
-	vector<string> names = {"Daniel", "John", "Peter"};
-		
-	// Classic for
+int numbers[] = {-1,2,3};
+vector<string> names = {"Daniel", "John", "Peter"};
 	
-	for (uint8_t i = 0; i < 3; ++i) { // Use "size_t" for large vectors
-		cout << numbers[i];
-	}
-	
-	for (vector<string>::iterator it = names.begin(); it != names.end(); ++it) {
-		cout << *it << ' ';
-	}
-	
-	
-	// For-range loop
-	
-	for (int number: numbers) {
-		cout << number << ' ';
-	}
-	
-	for (auto name: names) {
-		cout << name << ' ';
-	}
+// Classic for
+
+for (uint8_t i = 0; i < 3; ++i) { // Use "size_t" for large vectors
+	cout << numbers[i];
+}
+
+for (vector<string>::iterator it = names.begin(); it != names.end(); ++it) {
+	cout << *it << ' ';
+}
+
+
+// For-range loop
+
+for (int number: numbers) {
+	cout << number << ' ';
+}
+
+for (auto name: names) {
+	cout << name << ' ';
+}
 
 ```
 
