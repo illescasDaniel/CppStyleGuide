@@ -2,21 +2,19 @@
 
 Simple style guide of C++ code, could also be applied to other languages such as C or Java.
 
-Table of contents
-------
+## Table of contents
 
-* [Naming](#naming)
-* [Braces & Indentation](#braces--indentation)
-* [Best practices](#best-practices)
-* [Comments](#comments)
+- [Naming](#naming)
+- [Braces & Indentation](#braces--indentation)
+- [Best practices](#best-practices)
+- [Comments](#comments)
 
-Naming
-------
+## Naming
 
-* Names should be descriptive and clear and contain only letters. 
-* Abbreviations and acronyms should generally be avoided.  
-* Don't worry about the name length, `int a` is not better than `int age`. 
-* Variable names could contain more than one word if it looks more clear.
+- Names should be descriptive and clear and contain only letters. 
+- Abbreviations and acronyms should generally be avoided.  
+- Don't worry about the name length, `int a` is not better than `int age`. 
+- Variable names could contain more than one word if it looks more clear.
 
 **Syntax styles:**
 
@@ -43,8 +41,8 @@ float moneyOnBank = 30.6;
 
 **Constants:**  
 
-* If it's a local or non global constant, use lower camel case syntax. 
-* If it's a global constant you might want to use the whole name in upper case and use underscores to separate words.   
+- If it's a local or non global constant, use **lower camel case** syntax. 
+- If it's a global constant you might want to use the whole name in **upper case** and use underscores to separate words.   
 
 **Source Files:**
 
@@ -53,13 +51,13 @@ Another class can be implemented on the same file only if they are very related,
 
 If the file contains a class named "Human" the source file should be "Human.h" for the headers and "Human.cpp" for the methods; or "Human.hpp" if you implement the entire class in one file.
 
-* Use ".h" for header only classes or structures.
-* ".cpp" for the methods implementation of classes and for the "main.cpp"
-* ".hpp" for classes and it's method implementation.
+- Use ".h" for header only classes or structures.
+- ".cpp" for the methods implementation of classes and for the "main.cpp"
+- ".hpp" for classes and it's method implementation.
 
-Braces & Indentation
-------
-Use one tab character equivalent to 4 spaces for indentation.
+## Braces & Indentation
+
+Use a tab character equivalent to 4 spaces for indentation.
 
 Use K&R style with opening braces on the same line:  
 
@@ -87,8 +85,9 @@ void beHappy() {
 
 You can also use opening braces on a different line if it's a **function**.
 
-Best practices:
-------
+
+
+## Best practices:
 
 **Variables:**
 
@@ -105,7 +104,7 @@ Why? Because it uses less memory, 8 bits instead of 32 :)
 
 However try to avoid maths when using unsigned values:
 
-``` c++
+```c++
 unsigned int age = 1;  
 cout << (age > -1) << endl; // Output: false
 ```
@@ -113,7 +112,6 @@ cout << (age > -1) << endl; // Output: false
 Write same variables types in adjacent lines or in the same line:
 
 ```c++
-
 // BAD
 double myMoney;
 int number;
@@ -124,15 +122,15 @@ int anotherNumber;
 double myMoney, yourMoney;
 int number;
 int anotherNumber;
-
 ```
 
 **Classes:**
 
 We could use two different styles:  
-* Define the entire class in one file.  
-* Define the headers of the class in one file and the implementation in other.
- 
+
+- Define the entire class in one file.  
+- Define the headers of the class in one file and the implementation in other.
+
 Use default member values when they're always initialized with the same value, unless the value is different depending on the constructor, then initialize those values individually.  
 Try to avoid empty constructors, the uninitialized members has undefined values (use default member to avoid this, if you want).
 
@@ -168,7 +166,6 @@ class Human {
 	
 	// ...
 };
-
 ```
 
 **Main function:**
@@ -196,7 +193,6 @@ for (vector<string>::iterator it = names.begin(); it != names.end(); ++it) {
 	cout << *it << ' ';
 }
 
-
 // For-range loop
 
 for (int number: numbers) {
@@ -206,16 +202,17 @@ for (int number: numbers) {
 for (auto name: names) {
 	cout << name << ' ';
 }
-
 ```
 
-Comments:
------
+**Extra:**
+
+Leave a blank line at the end of each file.
+
+## Comments:
 
 Make comments about something that is harder to understand (like an algorithm) or to clarify something:
 
 ```c++
-
 /* BAD */
 
 // Main function
@@ -251,5 +248,4 @@ string toLower(string str) {
 	transform(str.begin(), str.end(), str.begin(), ::tolower);
 	return str;
 }
-
 ```
