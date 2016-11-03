@@ -10,8 +10,10 @@
 Naming
 ------
 
-Names should be descriptive and clear. They should generally contain only letters. Abbreviations and acronyms should generally be avoided.  
-And don't worry about the name length, `int a` is not better than `int age`. A variable name could contain more than one word if it looks more clear.
+* Names should be descriptive and clear and contain only letters. 
+* Abbreviations and acronyms should generally be avoided.  
+* Don't worry about the name length, `int a` is not better than `int age`. 
+* Variable names could contain more than one word if it looks more clear.
 
 **Syntax styles:**
 
@@ -20,7 +22,7 @@ Lower case: home
 Upper camel case: HouseOfDaniel  
 Lower camel case: numberOfHouses  
 
-**Classes and Structs:**:  
+**Classes and Structs:**  
 The first letter always in **upper** case, use **upper camel case syntax**. If is possible use only one word.
 
 ```c++ 
@@ -28,10 +30,13 @@ class Human {
 };
 ```
 
-**Variables:**:  
+**Variables:**  
 The first letter always in **lower** case, use **lower camel case** syntax.  
 
-`string name;`
+```c++
+string name;
+float moneyOnBank = 30.6;
+```
 
 **Constants:**  
 
@@ -181,7 +186,7 @@ Avoid old for loops when iterating through a range of elements:
 		
 	// Classic for
 	
-	for (int i; i < 3; ++i) {
+	for (uint8_t i = 0; i < 3; ++i) { // Use "size_t" for large vectors
 		cout << numbers[i];
 	}
 	
