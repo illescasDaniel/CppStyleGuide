@@ -1,5 +1,10 @@
 # CppStyleGuide
 
+Simple style guide of C++ code, could also be applied to other languages such as C or Java.
+
+Table of contents
+------
+
 * [Naming](#naming)
 * [Braces & Indentation](#braces--indentation)
 * [Best practices](#best-practices)
