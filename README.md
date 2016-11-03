@@ -24,6 +24,7 @@ Upper camel case: HouseOfDaniel
 Lower camel case: numberOfHouses  
 
 **Classes and Structs:**  
+
 The first letter always in **upper** case, use **upper camel case syntax**. If is possible use only one word.
 
 ```c++ 
@@ -32,6 +33,7 @@ class Human {
 ```
 
 **Variables:**  
+
 The first letter always in **lower** case, use **lower camel case** syntax.  
 
 ```c++
