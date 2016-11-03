@@ -17,7 +17,7 @@ Naming
 
 **Syntax styles:**
 
-Upper case: House  
+Upper case: NUMBER  
 Lower case: home  
 Upper camel case: HouseOfDaniel  
 Lower camel case: numberOfHouses  
