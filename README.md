@@ -101,7 +101,7 @@ int johnAge = 10;
 
 Why use "int" in a variable that is not suppose to be bigger than ~150?
 
-Try to use a variable that fits better, like uint8_t, which is an unsigned number from 0 to 256.  
+Try to use a variable that fits better, like **uint8_t**, which is an unsigned number from 0 to 256.  
 Why? Because it uses less memory, 8 bits instead of 32 :)
 
 However try to avoid maths when using unsigned values:
@@ -122,8 +122,8 @@ int anotherNumber;
 
 // GOOD
 double myMoney, yourMoney;
-int number;
 int anotherNumber;
+int number;
 ```
 
 **Classes:**
@@ -133,8 +133,10 @@ We could use two different styles:
 - Define the entire class in one file.  
 - Define the headers of the class in one file and the implementation in other.
 
-Use default member values when they're always initialized with the same value, unless the value is different depending on the constructor, then initialize those values individually.  
-Try to avoid empty constructors, the uninitialized members has undefined values (use default member to avoid this, if you want).
+**Use default member values** when they're always initialized with the same value, unless the value is different depending on the constructor, then initialize those values individually.  
+
+
+Try to **avoid empty constructors**, the uninitialized members has undefined values (use default member to avoid this, if you want).
 
 ```c++
 class Human {
@@ -174,7 +176,7 @@ class Human {
 
 You don't need to type `return 0;` at the end.
 
-> 4) The body of the main function does not need to contain the return statement: if control reaches the end of main without encountering a return statement, the effect is that of executing return 0; 
+> 4) The body of the main function does not need to contain the return statement: if control reaches the end of main without encountering a return statement, the effect is that of executing `return 0;` 
 
 **For loops:**
 
@@ -201,7 +203,7 @@ for (int number: numbers) {
 	cout << number << ' ';
 }
 
-for (auto name: names) {
+for (auto name: names) { // "auto" is a string in this case
 	cout << name << ' ';
 }
 ```
@@ -212,7 +214,17 @@ Leave a blank line at the end of each file.
 
 ## Comments:
 
-Make comments about something that is harder to understand (like an algorithm) or to clarify something:
+Try to use the second person:
+
+```c++
+// Sort a range of elements in reverse order using QuickSort algorithm
+template <typename Type>
+void quickSort(const vector<Type>& elements) { /*...*/ }
+```
+
+
+
+Make comments about something that is a bit hard to understand (like an algorithm) or to clarify something:
 
 ```c++
 /* BAD */
@@ -221,13 +233,13 @@ Make comments about something that is harder to understand (like an algorithm) o
 int main() {
 	
 	// This is the number of apples
-	int n;
+	int a;
 	
 	// The name of the shop
 	string s;
 	
-	// Print text (xD)
-	cout << "Daniel bought " << n << " apples in " << str << endl;
+	// Print text
+	cout << "Daniel bought " << a << " apples in " << s << endl;
 }
 
 /* GOOD */
