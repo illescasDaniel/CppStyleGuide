@@ -217,9 +217,9 @@ Leave a blank line at the end of each file.
 Try to use the second person:
 
 ```c++
-// Sort a range of elements in reverse order using QuickSort algorithm
-template <typename Type>
-void quickSort(const vector<Type>& elements) { /*...*/ }
+// Sort a range of elements in a custom order using QuickSort algorithm
+template <typename Type, typename Function>
+void quickSort(const vector<Type>& elements, const Function& order) { /*...*/ }
 ```
 
 
