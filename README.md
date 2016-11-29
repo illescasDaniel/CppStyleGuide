@@ -135,7 +135,6 @@ We could use two different styles:
 
 **Use default member values** when they're always initialized with the same value, unless the value is different depending on the constructor, then initialize those values individually.  
 
-
 Try to **avoid empty constructors**, the uninitialized members has undefined values (use default member to avoid this, if you want).
 
 ```c++
@@ -197,13 +196,13 @@ for (vector<string>::iterator it = names.begin(); it != names.end(); ++it) {
 	cout << *it << ' ';
 }
 
-// For-range loop
+// Range-based for loop
 
-for (int number: numbers) {
+for (const int& number: numbers) {
 	cout << number << ' ';
 }
 
-for (auto name: names) { // "auto" is a string in this case
+for (const auto& name: names) { // "auto" is a string in this case
 	cout << name << ' ';
 }
 ```
@@ -213,6 +212,8 @@ for (auto name: names) { // "auto" is a string in this case
 Leave a blank line at the end of each file.
 
 ## Comments:
+
+Comments should be on different lines than code, except for short comments in-line.
 
 Try to use the second person:
 
@@ -248,7 +249,7 @@ int main() {
 	
 	string name = "Daniel";
 	string lastName = "ILLESCAS";
-	float height = 170.0;
+	float height = 170.0; // in meters
 
 	// Print the name in upper case
 	for (char letter: name) {
