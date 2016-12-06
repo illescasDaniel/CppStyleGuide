@@ -1,20 +1,20 @@
 # [CppStyleGuide](https://github.com/illescasDaniel/CppStyleGuide)
 
-Simple style guide of C++ code, could also be applied to other languages such as C or Java.
+Simple style guide for C++ code, could also be applied to other languages such as C or Java.
 
 ## Table of contents
 
-- [Naming](#naming)
-- [Braces & Indentation](#braces--indentation)
-- [Best practices](#best-practices)
-- [Comments](#comments)
+-   [Naming](#naming)
+-   [Braces & Indentation](#braces--indentation)
+-   [Best practices](#best-practices)
+-   [Comments](#comments)
 
 ## Naming
 
-- Names should be descriptive and clear and contain only letters. 
-- Abbreviations and acronyms should generally be avoided.  
-- Don't worry about the name length, `int a` is not better than `int age`. 
-- Variable names could contain more than one word if it looks more clear.
+-   Names should be descriptive and clear and contain only letters. 
+-   Abbreviations and acronyms should generally be avoided.  
+-   Don't worry about the name length, `int a` is not better than `int age`. 
+-   Variable names could contain more than one word if it looks more clear.
 
 **Syntax styles:**
 
@@ -25,7 +25,7 @@ Lower camel case: numberOfHouses
 
 **Classes and Structs:**  
 
-The first letter always in **upper** case, use **upper camel case syntax**. If is possible use only one word.
+The first letter always in **upper** case, use **upper camel case syntax**.
 
 ```c++ 
 class Human { 
@@ -43,19 +43,19 @@ float moneyOnBank = 30.6;
 
 **Constants:**  
 
-- If it's a local or non global constant, use **lower camel case** syntax. 
-- If it's a global constant you might want to type the whole name in **upper case** and use underscores to separate words.   
+-   If it's a local or non global constant, use **lower camel case** syntax. 
+-   If it's a global constant you can type the whole name in **upper case** and use underscores to separate words.   
 
 **Source Files:**
 
 Classes should be defined in one or two separated files, one for the headers and the other for the methods.  
 Another class can be implemented on the same file only if they are very related, like nested clases or similar.
 
-If the file contains a class named "Human" the source file should be "Human.h" for the headers and "Human.cpp" for the methods; or "Human.hpp" if you implement the entire class in one file.
+If the file contains a class named "Human", the source file should be "Human.h" for the headers and "Human.cpp" for the methods; or "Human.hpp" if you implement the entire class in one file.
 
-- Use ".h" for header only classes or structures.
-- ".cpp" for the methods implementation of classes and for the "main.cpp"
-- ".hpp" for classes and it's method implementation.
+-   Use ".h" for header only classes or structures.
+-   ".cpp" for the methods implementation of classes and for the "main.cpp"
+-   ".hpp" for classes and it's method implementation.
 
 ## Braces & Indentation
 
@@ -101,17 +101,18 @@ int johnAge = 10;
 
 Why use "int" in a variable that is not suppose to be bigger than ~150?
 
-Try to use a variable that fits better, like **uint8_t**, which is an unsigned number from 0 to 256.  
+-   Try to use a variable that fits better, like **uint8_t** (unsigned char), which is an unsigned number from 0 to 256.  
+
 Why? Because it uses less memory, 8 bits instead of 32 :)
 
-However try to avoid maths when using unsigned values:
+However, try to **avoid maths when using unsigned values**:
 
 ```c++
 unsigned int age = 1;  
 cout << (age > -1) << endl; // Output: false
 ```
 
-Write same variables types in adjacent lines or in the same line:
+-   Write same variables types in adjacent lines or in the same line:
 
 ```c++
 // BAD
@@ -126,12 +127,27 @@ int anotherNumber;
 int number;
 ```
 
+-   Try to use `true` or `false` with bool variables instead of `1` or `0`.
+
+    You can also use `boolalpha` to print true or false instead of one or cero:
+
+    ```c++
+    int main() {
+    	bool isCool = true;
+      	cout << boolalpha << isCool << endl; // Output: true
+      
+      	// OR:
+      	boolalpha(cout);
+      	cout << isCool << endl;
+    }
+    ```
+
 **Classes:**
 
 We could use two different styles:  
 
-- Define the entire class in one file.  
-- Define the headers of the class in one file and the implementation in other.
+-   Define the entire class in one file.  
+-   Define the headers of the class in one file and the implementation in other.
 
 **Use default member values** when they're always initialized with the same value, unless the value is different depending on the constructor, then initialize those values individually.  
 
@@ -142,31 +158,22 @@ class Human {
 	
 	string name;
 	uint8_t age;
-	uint8_t numberOfarms = 2;
-	bool isDisabled = false;
-	
+  
+public:
 	Human(const uint8_t& age, const string& name) {
 		this->age = age;
 		this->name = name;
 	}
 	
-	Human(const uint8_t& age, const string& name, const bool& isDisabled) {
-		this->age = age;
-		this->name = name;
-		this->isDisabled = isDisabled;
-	}
-	
 	void setAge(const uint8_t& newAge) {
-		age = newAge;	
+      	if (newAge <= 150) {
+        	age = newAge;	  
+      	}
 	}
-	
-	void setNumberOfArms(const uint8_t& newNumberOfArms) {
-		if (isDisabled) {
-			numberOfArms = newNumberOfArms;
-		}
-		// ...
-	}
-	
+  
+  	bool isAdult() {
+    	return (age >= 18);
+  	}
 	// ...
 };
 ```
@@ -175,9 +182,9 @@ class Human {
 
 You don't need to type `return 0;` at the end.
 
-> 4) The body of the main function does not need to contain the return statement: if control reaches the end of main without encountering a return statement, the effect is that of executing `return 0;` 
+>   4) The body of the main function does not need to contain the return statement: if control reaches the end of main without encountering a return statement, the effect is that of executing `return 0;` 
 
-**For loops:**
+***for* loops:**
 
 Avoid old for loops when iterating through a range of elements:
 
@@ -189,7 +196,7 @@ vector<string> names = {"Daniel", "John", "Peter"};
 // Classic for
 
 for (uint8_t i = 0; i < 3; ++i) { // Use "size_t" for large vectors
-	cout << numbers[i];
+	cout << numbers[i] << ' ';
 }
 
 for (vector<string>::iterator it = names.begin(); it != names.end(); ++it) {
@@ -209,13 +216,15 @@ for (const auto& name: names) { // "auto" is a string in this case
 
 **Extra:**
 
-Leave a blank line at the end of each file.
+-   Leave a blank line at the end of each file.
+-   Compile your code with `-O2` or `-O3` for better performance, use `-Os` for smaller binary file size.
+-   Use C++14 (or newer) compiler flag: `-std=c++14`
+-   Use `-Wall` and/or `-Wextra` when debuggin to show more warnings.
 
 ## Comments:
 
-Comments should be on different lines than code, except for short comments in-line.
-
-Try to use the second person:
+-   Comments should be on different lines than code (except for short comments in-line) and with a space between `//` and the comment.
+-   Try to use the second person:
 
 ```c++
 // Sort a range of elements in a custom order using QuickSort algorithm
@@ -225,10 +234,10 @@ void quickSort(const vector<Type>& elements, const Function& order) { /*...*/ }
 
 
 
-Make comments about something that is a bit hard to understand (like an algorithm) or to clarify something:
+-   Make comments about something that is a bit hard to understand (like an algorithm) or to clarify something:
 
 ```c++
-/* BAD */
+/* BAD! */
 
 // Main function
 int main() {
@@ -236,10 +245,9 @@ int main() {
 	// This is the number of apples
 	int a;
 	
-	// The name of the shop
 	string s;
 	
-	// Print text
+	// Print text c:
 	cout << "Daniel bought " << a << " apples in " << s << endl;
 }
 
@@ -259,6 +267,7 @@ int main() {
 	cout << toLower(lastName) << endl;
 }
 
+// Transform a string to lower case
 string toLower(string str) {
 	transform(str.begin(), str.end(), str.begin(), ::tolower);
 	return str;
