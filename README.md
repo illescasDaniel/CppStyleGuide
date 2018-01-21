@@ -11,10 +11,10 @@ Simple style guide for C++ code, could also be applied to other languages such a
 
 ## Naming
 
--   Names should be descriptive and clear and contain only letters. 
+-   Names should be descriptive, clear and contain only letters. 
 -   Abbreviations and acronyms should generally be avoided.  
 -   Don't worry about the name length, `int a` is not better than `int age`. 
--   Variable names could contain more than one word if it looks more clear.
+-   Variable names can contain more than one word if it looks more clear.
 
 **Syntax styles:**
 
@@ -44,16 +44,14 @@ float moneyOnBank = 30.6;
 **Constants:**  
 
 -   If it's a local or non global constant, use **lower camel case** syntax. 
--   If it's a global constant you can type the whole name in **upper case** and use underscores to separate words.   
+-   If it's a global constant (you should avoid them however) you can type the whole name in **upper case** and use underscores to separate words.   
 
 **Source Files:**
 
 Classes should be defined in one or two separated files, one for the headers and the other for the methods.  
 Another class can be implemented on the same file only if they are very related, like nested clases or similar.
 
-If the file contains a class named "Human", the source file should be "Human.h" for the headers and "Human.cpp" for the methods; or "Human.hpp" if you implement the entire class in one file.
-
--   Use ".h" for header only classes or structures.
+-   Use ".h"/".hpp" for header only classes or structures.
 -   ".cpp" for the methods implementation of classes and for the "main.cpp"
 -   ".hpp" for classes and it's method implementation.
 
@@ -85,8 +83,6 @@ void beHappy() {
 }
 ```
 
-You can also use opening braces on a different line if it's a **function**.
-
 
 
 ## Best practices:
@@ -112,17 +108,19 @@ unsigned int age = 1;
 cout << (age > -1) << endl; // Output: false
 ```
 
--   Write same variables types in adjacent lines or in the same line:
+-   Try to write same variables types in adjacent lines, also try to avoid declaring variables in the same line:
 
 ```c++
-// BAD
+// Ugly
 double myMoney;
-int number;
-double yourMoney;
+int number, myNumber;
+double yourMoney, test;
 int anotherNumber;
 
-// GOOD
-double myMoney, yourMoney;
+// Better
+double myMoney;
+double test;
+double yourMoney;
 int anotherNumber;
 int number;
 ```
@@ -160,12 +158,12 @@ class Human {
 	uint8_t age;
   
 public:
-	Human(const uint8_t& age, const string& name) {
+	Human(const uint8_t age, const string& name) {
 		this->age = age;
 		this->name = name;
 	}
 	
-	void setAge(const uint8_t& newAge) {
+	void setAge(const uint8_t newAge) {
       	if (newAge <= 150) {
         	age = newAge;	  
       	}
